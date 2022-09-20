@@ -9,7 +9,11 @@ app.use(express.json())
 app.get('/', async (req,res) => {
     const respuesta = await peticion();
     res.json(respuesta);
-    
+})
+
+app.get('/info', async (req,res) => {
+    const respuesta = await peticion2();
+    res.json(respuesta);
 })
 
 app.listen(PORT, ()=>{
@@ -21,6 +25,16 @@ async function peticion(){
     const config = {
         method: 'get',
         url: process.env.DIRECCION
+    }
+    const res = await axios(config)
+    return res.data 
+}
+
+
+async function peticion2(){
+    const config = {
+        method: 'get',
+        url: process.env.DIRECCION + "info"
     }
     const res = await axios(config)
     return res.data 
