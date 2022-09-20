@@ -2,9 +2,9 @@ version: "3"
 
 services:
   backend:
+    build: ./back
     container_name: backend
     restart: always
-    build: ./back
     ports: 
       - 4000:4000
     networks:
@@ -12,9 +12,9 @@ services:
         aliases:
           - backend
   frontend:
+    build: ./front
     container_name: frontend
     restart: always
-    build: ./front
     ports: 
       - 3000:3000
     depends_on:
@@ -23,7 +23,6 @@ services:
       network_proyecto:
         aliases:
           - frontned
-
 networks:
   network_proyecto:
     name: net_proyecto
