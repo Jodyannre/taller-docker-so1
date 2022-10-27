@@ -18,7 +18,7 @@ app.get('/info', (req,res) => {
     const hours = date_ob.getHours();         
     const minutes = date_ob.getMinutes();    
     const seconds = date_ob.getSeconds();     
-    res.json({message:"Este es el taller de docker", 
+    res.json({message:"Este info viene de google cloud", 
     date: day + "-" + month + "-" + year,
     time: hours + ":" + minutes + ":" + seconds});
 })

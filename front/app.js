@@ -20,11 +20,13 @@ app.listen(PORT, ()=>{
     console.log(`App corriendo en el puerto ${PORT}`)
 })
 
+var uri = 'backend'
+//uri = "http://localhost"
 
 async function peticion(){
     const config = {
         method: 'get',
-        url: process.env.DIRECCION
+        url: uri + ":4000/"
     }
     const res = await axios(config)
     return res.data 
@@ -34,7 +36,7 @@ async function peticion(){
 async function peticion2(){
     const config = {
         method: 'get',
-        url: process.env.DIRECCION + "info"
+        url: uri+":4000/info"
     }
     const res = await axios(config)
     return res.data 
